@@ -1,21 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(int *array, int length) {
-  int max_pos = 0, min_pos = 0;
-  for (int i = 0; i < length; i++) {
-    if (array[i] > array[max_pos]) {
-      max_pos = i;
-    }
-    if (array[i] < array[min_pos]) {
-      min_pos = i;
-    }
-  }
-  int tmp = array[max_pos];
-  array[max_pos] = array[min_pos];
-  array[min_pos] = tmp;
-}
-
 int main(void) {
   int flag = 0;
   int capacity = 2;
@@ -48,12 +33,11 @@ int main(void) {
       if (num == -1) {
         break;
       }
-      if (ch != ' ' && ch != '\t') {
+      if (ch == ' ' && ch == '\t') {
         flag = 1;
       }
     }
   }
-  swap(array, length);
   if (flag == 0 && length > 0) {
     for (int i = 0; i < length; i++) {
       if (i == length - 1) {
